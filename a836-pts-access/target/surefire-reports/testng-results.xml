@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="33477" started-at="2023-10-20T14:56:42Z" finished-at="2023-10-20T14:57:15Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7c16905e]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Cucumber with TestNG Test" duration-ms="33477" started-at="2023-10-20T14:56:42Z" finished-at="2023-10-20T14:57:15Z">
+      <class name="runners.TestRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runners.TestRunner@7c16905e]" name="setUpClass" is-config="true" duration-ms="392" started-at="2023-10-20T14:56:42Z" finished-at="2023-10-20T14:56:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7c16905e]" name="runScenario" duration-ms="23507" started-at="2023-10-20T14:56:42Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-10-20T14:57:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verification of Login button with numbers of credential"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Web Automation Login, fill info and logout"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7c16905e]" name="runScenario" duration-ms="9329" started-at="2023-10-20T14:57:06Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-10-20T14:57:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verification of Login button with numbers of credential"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Web Automation Login, fill info and logout"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runners.TestRunner@7c16905e]" name="tearDownClass" is-config="true" duration-ms="233" started-at="2023-10-20T14:57:15Z" finished-at="2023-10-20T14:57:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runners.TestRunner -->
+    </test> <!-- Cucumber with TestNG Test -->
+  </suite> <!-- Suite -->
+</testng-results>
