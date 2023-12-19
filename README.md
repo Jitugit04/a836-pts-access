@@ -2,7 +2,7 @@
 
 ## Web Automation Project
 ### Overview
-This project is a web automation for testing bbl search from [https://www.moneycorp.com/en-gb/](https://a836-pts-access.nyc.gov/care/search/CommonSearch.aspx?mode=PERSPROP) 
+This project is a web automation for testing bbl search from [https://a836-pts-access.nyc.gov](https://a836-pts-access.nyc.gov/care/search/CommonSearch.aspx?mode=PERSPROP) 
 <br>It is taking care of below scenario -
 * Read search data from QA_Automation_Task_Data.xlsx
 * Traverse through each row from the excel sheet, fill in search params and click on search.
