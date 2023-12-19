@@ -1,16 +1,17 @@
 package runners.testng;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.zip.DataFormatException;
 
 import Helper.Base;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import Helper.ExcelRead;
 import PageObject.A836Page;
@@ -20,6 +21,9 @@ public class TestApp extends Base {
    String message = "Hello World";
    A836Page page;
    ExcelRead er = new ExcelRead(null);
+   Workbook wb;
+   String excelFilePath = "QA_Automation_Task_Data.xlsx";
+    String outExcelFilePath = "QA_Automation_Task_Data_Results.xlsx";
 
    @BeforeMethod
    public void setup() throws MalformedURLException {
@@ -30,7 +34,8 @@ public class TestApp extends Base {
 
    @DataProvider (name = "BBL_Search_Data")
     public Object[][] dpMethod() throws DataFormatException, IOException {
-        Cell[][] rowArray = er.getExcelData("QA_Automation_Task_Data.xlsx", 0);
+        Cell[][] rowArray = er.getExcelData(this.excelFilePath, 0);
+        this.wb = er.wb;
         return rowArray;
     }
 
@@ -52,7 +57,27 @@ public class TestApp extends Base {
        page.clickSearch();
        boolean isResultFound = page.checkIfResultFound();
 
+       if (isResultFound) {
+           status.setCellValue("Success");
+       } else {
+           status.setCellValue("Failure");
+       }
+
        Assert.assertTrue(isResultFound);
 
+   }
+
+   @AfterMethod
+    public void close() throws IOException {
+       driver.close();
+   }
+
+   @AfterTest
+    public void writeXls() throws IOException {
+       this.er.file.close();
+
+       FileOutputStream outFile =new FileOutputStream(new File(this.outExcelFilePath));
+       this.wb.write(outFile);
+       outFile.close();
    }
 }

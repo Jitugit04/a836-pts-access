@@ -1,6 +1,7 @@
 package Helper;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,44 +13,18 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 
 public class ExcelRead {
 	
 	
-	//private WebDriver driver;
-
-
-
-	//public ExcelRead(WebDriver driver) {
-		
-	//	this.driver=driver;
-		// TODO Auto-generated constructor stub
-	//}
-
-
+	public Workbook wb;
+	public FileInputStream file;
 
 	public ExcelRead(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 	}
-
-
-
-	/* public List<Map<String,String>> getData(String excelFilePath, String sheetName)throws DataFormatException,IOException
-	{
-		Sheet sheet=getSheetByName(excelFilePath,sheetName);
-		return readSheet(sheet);
-		
-	}
-
-
-
-	public List<Map<String,String>> getData(String excelFilePath, int sheetNumber)throws DataFormatException,IOException
-	{
-		Sheet sheet=getSheetByIndex(excelFilePath,sheetNumber);
-		return readSheet(sheet);
-		
-	} */
 
 	public Cell[][] getExcelData(String excelFilePath, int sheetNumber)throws DataFormatException,IOException
 	{
@@ -57,31 +32,6 @@ public class ExcelRead {
 		return getRows(sheet);
 		
 	}
-
-
-	/* private List<Map<String, String>> readSheet(Sheet sheet) {
-		Row row;
-		int totalRow= sheet.getPhysicalNumberOfRows();
-		List<Map<String,String>> excelRows=new ArrayList<Map<String,String>>();
-		int headerRowNumber=getHeaderRowNumber(sheet);
-		if(headerRowNumber !=-1) {
-			Row headerRow = sheet.getRow(headerRowNumber);
-			int totalColumn=headerRow.getLastCellNum();
-			int setCurrentRow=1;
-			for(int CurrentRow=setCurrentRow; CurrentRow <= totalRow-1; CurrentRow++)
-			{
-				row = sheet.getRow(sheet.getFirstRowNum()+ CurrentRow);
-				System.out.println("row: " + row);
-				//LinkedHashMap<String,String> ColunMapdata=new LinkedHashMap<String,String>();
-				
-				Map<String, String> cellValueMap = getCellValue(headerRow, row, CurrentRow, totalColumn);
-				System.out.println("cellValueMap: " + cellValueMap);
-				excelRows.add(cellValueMap);
-			
-			}	
-		}
-		return excelRows;
-	} */
 
 
 	private Cell[][] getRows(Sheet sheet) {
@@ -148,8 +98,8 @@ public class ExcelRead {
 
 	private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws EncryptedDocumentException, IOException {
 		// TODO Auto-generated method stub
-		
-		Sheet sheet=((Workbook) getWorkBook(excelFilePath)).getSheetAt(sheetNumber);
+		this.wb = ((Workbook) getWorkBook(excelFilePath));
+		Sheet sheet=this.wb.getSheetAt(sheetNumber);
 		return sheet;
 	}
 
@@ -157,7 +107,9 @@ public class ExcelRead {
 
 	private Object getWorkBook(String excelFilePath) throws EncryptedDocumentException, IOException {
 		// TODO Auto-generated method stub
-		return WorkbookFactory.create(new File(excelFilePath));
+		//return WorkbookFactory.create(new File(excelFilePath));
+		this.file = new FileInputStream(excelFilePath);
+		return new XSSFWorkbook(file);
 	}
 
 
