@@ -25,10 +25,10 @@ This automation project has been run and the results also are included in Projec
 * **a836-pts-access/QA_Automation_Task_Data_Results.xlsx**
 
 ## Prepare Test Cases for www.airbnb.co.in
-Test cases are prsent at **other_assignments/Test_Cases_Airbnb_Reservation.xlsx**
+Test cases are present at **other_assignments/Test_Cases_Airbnb_Reservation.xlsx**
 
 ## Create a training plan for fresher QA Engineer
-Training plan is prsent at **other_assignments/Create TestPlan for QA Training.xlsx**
+Training plan is present at **other_assignments/Create TestPlan for QA Training.xlsx**
 
 ## Review SQL_Practical_Test_Fresher.pdf 
-Update SQL sheet with answers is prsent at **other_assignments/SQL_Practical_Test_Updated_Answers.xlsx**
+Update SQL sheet with answers is present at **other_assignments/SQL_Practical_Test_Updated_Answers.xlsx**
